@@ -1,0 +1,8 @@
+build_script:
+    - dotnet build src/Aodag.BankAccountTutorial
+test_script:
+    - dotnet test test/Aodag.BankAccountTutorial.Test
+after_test:
+    - dotnet pack -c Release src/Aodag.BankAccountTutorial
+artifacts:
+    - path: '**\*.nupkg'
