@@ -5,11 +5,17 @@ build_script:
 test_script:
     - dotnet test test/Aodag.BankAccountTutorial.Test
 after_test:
-    - ps: $timestamp = Get-Date -Format "yyyyMMddHHmmss"
-    - ps: dotnet pack -c Release src/Aodag.BankAccountTutorial --version-suffix $timestamp
+    - ps: dotnet pack -c Release src/Aodag.BankAccountTutorial --version-suffix $APPVEYOR_BUILD_NUMBER
 artifacts:
     - path: '**\*.nupkg'
 nuget:
   account_feed: true
   project_feed: true
   disable_publish_on_pr: true
+deploy:
+    provider: Nuget
+    server: https://www.myget.org/F/bankaccounttutorial/api/v2/package
+    api_key:
+        secure: xvrnIJLXQq6nQvpeS6dbcGsieQk9T3ZIx9z87k4vGXuMjFI3WueVYcsyUhQf6HBk
+    artifact: /.*\.nupkg/
+    skip_symbols: true
