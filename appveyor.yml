@@ -9,3 +9,7 @@ after_test:
     - ps: dotnet pack -c Release src/Aodag.BankAccountTutorial --version-suffix $timestamp
 artifacts:
     - path: '**\*.nupkg'
+nuget:
+  account_feed: true
+  project_feed: true
+  disable_publish_on_pr: true
