@@ -13,7 +13,7 @@ nuget:
   project_feed: true
   disable_publish_on_pr: true
 deploy:
-    provider: Nuget
+    provider: NuGet
     server: https://www.myget.org/F/bankaccounttutorial/api/v2/package
     api_key:
         secure: xvrnIJLXQq6nQvpeS6dbcGsieQk9T3ZIx9z87k4vGXuMjFI3WueVYcsyUhQf6HBk
