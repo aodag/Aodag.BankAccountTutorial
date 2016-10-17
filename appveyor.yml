@@ -5,7 +5,7 @@ build_script:
 test_script:
     - dotnet test test/Aodag.BankAccountTutorial.Test
 after_test:
-    - ps: dotnet pack -c Release src/Aodag.BankAccountTutorial --version-suffix $APPVEYOR_BUILD_NUMBER
+    - ps: dotnet pack -c Release src/Aodag.BankAccountTutorial --version-suffix $env:APPVEYOR_BUILD_NUMBER
 artifacts:
     - path: '**\*.nupkg'
 nuget:
