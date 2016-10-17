@@ -5,7 +5,7 @@ build_script:
 test_script:
     - dotnet test test/Aodag.BankAccountTutorial.Test
 after_test:
-    - $timestamp = Get-Date -Format "yyyyMMddHHmmss"
-    - dotnet pack -c Release src/Aodag.BankAccountTutorial --version-suffix $timestamp
+    - ps: $timestamp = Get-Date -Format "yyyyMMddHHmmss"
+    - ps: dotnet pack -c Release src/Aodag.BankAccountTutorial --version-suffix $timestamp
 artifacts:
     - path: '**\*.nupkg'
